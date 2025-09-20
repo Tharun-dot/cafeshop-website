@@ -1,0 +1,328 @@
+/* Loading Container */
+.loading-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: linear-gradient(135deg, #3E2723 0%, #5D4037 30%, #8D6E63 70%, #A1887F 100%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  overflow: hidden;
+}
+
+.loading-content {
+  text-align: center;
+  color: white;
+  max-width: 400px;
+  width: 100%;
+  padding: 20px;
+}
+
+/* Coffee Cup Animation */
+.coffee-cup {
+  margin-bottom: 40px;
+  display: flex;
+  justify-content: center;
+}
+
+.cup {
+  position: relative;
+  width: 80px;
+  height: 60px;
+  background: #5D4037;
+  border-radius: 0 0 40px 40px;
+  border: 3px solid #3E2723;
+  animation: cupFloat 3s ease-in-out infinite;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.cup-handle {
+  position: absolute;
+  right: -15px;
+  top: 10px;
+  width: 20px;
+  height: 30px;
+  border: 3px solid #3E2723;
+  border-left: none;
+  border-radius: 0 20px 20px 0;
+}
+
+.coffee-liquid {
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  right: 5px;
+  height: 20px;
+  background: linear-gradient(45deg, #3E2723, #5D4037, #6D4C41);
+  border-radius: 0 0 30px 30px;
+  animation: liquidMove 2s ease-in-out infinite;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Steam Animation */
+.steam {
+  position: absolute;
+  top: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 8px;
+}
+
+.steam-line {
+  width: 3px;
+  height: 20px;
+  background: rgba(255, 255, 255, 0.6);
+  border-radius: 2px;
+  animation: steamRise 1.5s ease-in-out infinite;
+}
+
+.steam-line:nth-child(1) {
+  animation-delay: 0s;
+}
+
+.steam-line:nth-child(2) {
+  animation-delay: 0.3s;
+}
+
+.steam-line:nth-child(3) {
+  animation-delay: 0.6s;
+}
+
+/* Loading Text */
+.loading-text {
+  margin-bottom: 30px;
+}
+
+.loading-title {
+  font-size: clamp(2rem, 6vw, 3rem);
+  font-family: 'Roboto Condensed', sans-serif;
+  font-weight: 700;
+  margin-bottom: 10px;
+  background: linear-gradient(45deg, #D7CCC8, #BCAAA4, #8D6E63);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: titleGlow 2s ease-in-out infinite alternate;
+}
+
+.loading-subtitle {
+  font-size: clamp(1rem, 3vw, 1.2rem);
+  font-family: 'Roboto Condensed', sans-serif;
+  font-weight: 300;
+  opacity: 0.9;
+  animation: subtitleFade 2s ease-in-out infinite;
+}
+
+/* Progress Bar */
+.loading-progress {
+  margin-bottom: 30px;
+}
+
+.progress-bar {
+  width: 100%;
+  height: 4px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 2px;
+  overflow: hidden;
+  margin-bottom: 10px;
+}
+
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #8D6E63, #A1887F, #BCAAA4);
+  border-radius: 2px;
+  transition: width 0.3s ease;
+  box-shadow: 0 0 8px rgba(141, 110, 99, 0.5);
+}
+
+.progress-text {
+  text-align: center;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #D7CCC8;
+  font-family: 'Roboto Condensed', sans-serif;
+}
+
+/* Loading Dots */
+.loading-dots {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+}
+
+.loading-dots span {
+  width: 8px;
+  height: 8px;
+  background: #8D6E63;
+  border-radius: 50%;
+  animation: dotBounce 1.4s ease-in-out infinite;
+  box-shadow: 0 0 6px rgba(141, 110, 99, 0.6);
+}
+
+.loading-dots span:nth-child(1) {
+  animation-delay: 0s;
+}
+
+.loading-dots span:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.loading-dots span:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+/* Animations */
+@keyframes cupFloat {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-10px) rotate(2deg);
+  }
+}
+
+@keyframes liquidMove {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-2px);
+  }
+}
+
+@keyframes steamRise {
+  0% {
+    opacity: 0;
+    transform: translateY(0px) scaleY(1);
+  }
+  50% {
+    opacity: 1;
+    transform: translateY(-10px) scaleY(1.2);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-20px) scaleY(0.8);
+  }
+}
+
+@keyframes titleGlow {
+  0% {
+    text-shadow: 0 0 10px rgba(215, 204, 200, 0.5);
+  }
+  100% {
+    text-shadow: 0 0 20px rgba(215, 204, 200, 0.8), 0 0 30px rgba(188, 170, 164, 0.6);
+  }
+}
+
+@keyframes subtitleFade {
+  0%, 100% {
+    opacity: 0.7;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+/* Progress fill animation is now handled dynamically via React state */
+
+@keyframes dotBounce {
+  0%, 80%, 100% {
+    transform: scale(0.8);
+    opacity: 0.5;
+  }
+  40% {
+    transform: scale(1.2);
+    opacity: 1;
+  }
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .loading-content {
+    max-width: 300px;
+    padding: 15px;
+  }
+  
+  .cup {
+    width: 60px;
+    height: 45px;
+  }
+  
+  .cup-handle {
+    right: -12px;
+    top: 8px;
+    width: 15px;
+    height: 22px;
+  }
+  
+  .coffee-liquid {
+    top: 4px;
+    left: 4px;
+    right: 4px;
+    height: 15px;
+  }
+  
+  .steam {
+    top: -15px;
+  }
+  
+  .steam-line {
+    width: 2px;
+    height: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .loading-content {
+    max-width: 250px;
+    padding: 10px;
+  }
+  
+  .cup {
+    width: 50px;
+    height: 38px;
+  }
+  
+  .cup-handle {
+    right: -10px;
+    top: 6px;
+    width: 12px;
+    height: 18px;
+  }
+  
+  .coffee-liquid {
+    top: 3px;
+    left: 3px;
+    right: 3px;
+    height: 12px;
+  }
+  
+  .steam {
+    top: -12px;
+  }
+  
+  .steam-line {
+    width: 2px;
+    height: 12px;
+  }
+}
+
+/* Fade out animation for when loading completes */
+.loading-container.fade-out {
+  animation: fadeOut 0.5s ease-out forwards;
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1.1);
+  }
+}
